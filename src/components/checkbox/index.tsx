@@ -1,7 +1,32 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const CheckBox = () => {
-  return <div>CheckBox</div>;
+interface ICheckboxProps {
+  disabled?: boolean;
+  checked?: boolean;
+  label: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  [x: string]: any;
+}
+
+const Checkbox = ({
+  disabled = false,
+  checked = false,
+  label,
+  onChange,
+  ...restProps
+}: ICheckboxProps) => {
+  return (
+    <label style={{ fontSize: "1.4rem" }}>
+      <input
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        onChange={onChange}
+        {...restProps}
+      />{" "}
+      {label}
+    </label>
+  );
 };
 
-export default CheckBox;
+export default Checkbox;

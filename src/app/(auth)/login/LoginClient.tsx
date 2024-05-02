@@ -36,6 +36,8 @@ const LoginClient = () => {
     e.preventDefault();
   };
 
+  const signInWithGoogle = () => {};
+
   return (
     <>
       {isLoading && <Loader />}
